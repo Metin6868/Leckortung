@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF - Schadensbericht</title>
+  <link rel="stylesheet" href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pdf.css">
+  <meta name="theme-color" content="#212529">
+  <link rel="icon" href="icons/icon-192x192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+</head>
+<body>
+  <div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <div class="btn-group" role="group">
+        <button id="printPDF" class="btn btn-primary">
+          <i class="bi bi-printer"></i> Drucken
+        </button>
+        <button id="downloadPDF" class="btn btn-success">
+          <i class="bi bi-download"></i> Herunterladen
+        </button>
+        <button id="backButton" class="btn btn-secondary">
+          <i class="bi bi-arrow-left"></i> Zurück
+        </button>
+      </div>
+
+    </div>
+    <div id="reportContent">
+      <!-- Bericht wird hier dynamisch aufgebaut -->
+      <div class="text-center my-5">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Wird geladen...</span>
+        </div>
+        <p class="mt-2">Bericht wird generiert...</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+  <script src="js/database.js"></script>
+  <script>
+    /**
+     * Get URL parameter by name
+     * @param {string} name - The name of the parameter
+     * @param {string} url - The URL to check (defaults to current window location)
+     * @returns {string|null} The value of the parameter or null if not found
+     */
+    function getParameterByName(name, url = window.location.href) {
+      name = name.replace(/[[\]]/g, '\\$&');
+      const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+      if (!results) return null;
+      if (!results[2]) return '';
+      return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+  </script>
+  <script src="js/pdf.js"></script>
+  
+  <!-- Keine Service Worker Registrierung in der Standalone-Version -->
+</body>
+</html>

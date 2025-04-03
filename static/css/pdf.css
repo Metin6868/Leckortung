@@ -1,0 +1,110 @@
+/* Styling für die PDF-Generierung */
+
+/* Generelles Styling für bessere Druckqualität */
+#reportContent {
+  background-color: white;
+  color: black;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Flexbox Layout für nebeneinander liegende Abschnitte */
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.flex-column {
+  flex: 1;
+  min-width: 0; /* Verhindert Überlauffehler in Flexbox */
+}
+
+.section {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.section-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #333;
+  background-color: #FFFACD; /* Leichtes Gelb für die Kategorie-Überschriften */
+  padding: 5px;
+}
+
+.field {
+  margin-bottom: 8px;
+  color: black;
+}
+
+.label {
+  font-weight: bold;
+  color: black;
+}
+
+.image {
+  max-width: 100%;
+  max-height: 300px;
+  margin: 10px 0;
+  border: 1px solid #333;
+}
+
+/* Druckeinstellungen */
+@media print {
+  body {
+    background-color: white !important;
+    color: black !important;
+  }
+  
+  /* Alle Bootstrap-Farbthemen für den Druck überschreiben */
+  [data-bs-theme=dark] {
+    --bs-body-color: black !important;
+    --bs-body-bg: white !important;
+  }
+  
+  /* Diese Elemente beim Drucken ausblenden */
+  .pdf-actions,
+  button,
+  .btn,
+  nav,
+  header,
+  footer {
+    display: none !important;
+  }
+  
+  /* Sicherstellen, dass der Container vollständig sichtbar ist */
+  .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* Inhalt vom Content-Container mit Abstand versehen */
+  #reportContent, #printContent {
+    padding-top: 3.5cm;  /* Platz für die Kopfzeile */
+    padding-bottom: 2.5cm; /* Platz für die Fußzeile */
+  }
+  
+  /* Links schwarz drucken */
+  a {
+    color: black !important;
+    text-decoration: none !important;
+  }
+  
+  /* Optimieren der Seitenränder und Platz für Kopf- und Fußzeile */
+  @page {
+    margin-top: 3.5cm;    /* Platz für Kopfzeile */
+    margin-bottom: 2.5cm; /* Platz für Fußzeile */
+    margin-left: 1.5cm;
+    margin-right: 1.5cm;
+  }
+}

@@ -1,0 +1,54 @@
+/* Allgemeine Stile */
+body {
+    min-height: 100vh;
+}
+
+/* Bild-Vorschau */
+.image-preview {
+    min-height: 100px;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.image-preview img {
+    max-width: 100%;
+    border-radius: 4px;
+}
+
+/* Responsive Anpassungen für mobile Geräte */
+@media (max-width: 768px) {
+    .container-fluid {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    /* Größere Touch-Targets für mobile Geräte */
+    .form-control, .btn {
+        min-height: 48px;
+        font-size: 16px;
+    }
+    
+    /* Bessere Darstellung auf kleinen Bildschirmen */
+    .card {
+        margin-bottom: 20px;
+    }
+    
+    /* Verbesserte Button-Layouts für mobile Geräte */
+    .btn-group {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .btn-group .btn {
+        margin-bottom: 5px;
+        border-radius: 4px !important;
+    }
+}
+
+/* Verbessertes Erscheinungsbild für Tablets */
+@media (min-width: 768px) and (max-width: 992px) {
+    .form-control, .btn {
+        min-height: 44px;
+    }
+}

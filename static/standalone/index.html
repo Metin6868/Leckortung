@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schadensbericht Formular</title>
+  <link rel="stylesheet" href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <meta name="theme-color" content="#212529">
+  <link rel="icon" href="icons/icon-192x192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+</head>
+<body>
+  <div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h1>Schadensbericht Formular</h1>
+      <a href="berichte.html" class="btn btn-outline-info">Alle Berichte</a>
+    </div>
+    <form id="berichtForm">
+      <!-- Projektdaten -->
+      <div class="form-section">
+        <h2>Projektdaten</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <label for="projekt">Projektname</label>
+            <input type="text" name="projekt" id="projekt" class="form-control">
+          </div>
+          <div class="col-md-6">
+            <label for="unsere_projekt_nr">Unsere Projekt Nr.</label>
+            <input type="text" name="unsere_projekt_nr" id="unsere_projekt_nr" class="form-control">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label for="sachbearbeiter">Sachbearbeiter</label>
+            <input type="text" name="sachbearbeiter" id="sachbearbeiter" class="form-control">
+          </div>
+          <div class="col-md-6">
+            <label for="telefon">Telefon</label>
+            <input type="text" name="telefon" id="telefon" class="form-control">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label for="ag_projekt_nr">AG Projekt Nr.</label>
+            <input type="text" name="ag_projekt_nr" id="ag_projekt_nr" class="form-control">
+          </div>
+          <div class="col-md-6">
+            <label for="versicherung">Versicherung</label>
+            <input type="text" name="versicherung" id="versicherung" class="form-control">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <label for="datum">Datum</label>
+            <input type="date" name="datum" id="datum" class="form-control">
+          </div>
+          <div class="col-md-4">
+            <label for="einsatzzeit">Einsatzzeit</label>
+            <div class="row">
+              <div class="col-6">
+                <label for="einsatzzeit_von" class="small">Von</label>
+                <input type="time" name="einsatzzeit_von" id="einsatzzeit_von" class="form-control">
+              </div>
+              <div class="col-6">
+                <label for="einsatzzeit_bis" class="small">Bis</label>
+                <input type="time" name="einsatzzeit_bis" id="einsatzzeit_bis" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <label for="fahrzeit">Fahrzeit</label>
+            <select name="fahrzeit" id="fahrzeit" class="form-control">
+              <option value="">Bitte wählen</option>
+              <option value="15 Minuten">15 Minuten</option>
+              <option value="30 Minuten">30 Minuten</option>
+              <option value="45 Minuten">45 Minuten</option>
+              <option value="1 Stunde">1 Stunde</option>
+              <option value="1 Stunde 15 Minuten">1 Stunde 15 Minuten</option>
+              <option value="1 Stunde 30 Minuten">1 Stunde 30 Minuten</option>
+              <option value="1 Stunde 45 Minuten">1 Stunde 45 Minuten</option>
+              <option value="2 Stunden">2 Stunden</option>
+              <option value="2 Stunden 15 Minuten">2 Stunden 15 Minuten</option>
+              <option value="2 Stunden 30 Minuten">2 Stunden 30 Minuten</option>
+              <option value="2 Stunden 45 Minuten">2 Stunden 45 Minuten</option>
+              <option value="3 Stunden">3 Stunden</option>
+              <option value="3 Stunden 15 Minuten">3 Stunden 15 Minuten</option>
+              <option value="3 Stunden 30 Minuten">3 Stunden 30 Minuten</option>
+              <option value="3 Stunden 45 Minuten">3 Stunden 45 Minuten</option>
+              <option value="4 Stunden">4 Stunden</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <label for="messtechniker">Messtechniker</label>
+            <input type="text" name="messtechniker" id="messtechniker" class="form-control">
+          </div>
+        </div>
+      </div>
+
+      <!-- Auftraggeber -->
+      <div class="form-section">
+        <h2>Auftraggeber</h2>
+        <div class="row">
+          <div class="col-md-12">
+            <label for="firma">Firma / Name</label>
+            <input type="text" name="firma" id="firma" class="form-control">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <label for="firma_strasse">Straße</label>
+            <input type="text" name="firma_strasse" id="firma_strasse" class="form-control">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <label for="firma_plz">PLZ</label>
+            <input type="text" name="firma_plz" id="firma_plz" class="form-control">
+          </div>
+          <div class="col-md-8">
+            <label for="firma_ort">Ort</label>
+            <input type="text" name="firma_ort" id="firma_ort" class="form-control">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <label for="mail">Mail</label>
+            <input type="email" name="mail" id="mail" class="form-control">
+          </div>
+        </div>
+      </div>
+
+      <!-- Schadenort -->
+      <div class="form-section">
+        <h2>Schadenort</h2>
+        <div class="row">
+          <div class="col-md-12">
+            <label for="schaden_strasse">Straße</label>
+            <input type="text" name="schaden_strasse" id="schaden_strasse" class="form-control">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <label for="schaden_plz">PLZ</label>
+            <input type="text" name="schaden_plz" id="schaden_plz" class="form-control">
+          </div>
+          <div class="col-md-8">
+            <label for="schaden_ort">Ort</label>
+            <input type="text" name="schaden_ort" id="schaden_ort" class="form-control">
+          </div>
+        </div>
+      </div>
+
+      <!-- Weitere betroffene Wohneinheiten -->
+      <div class="form-section">
+        <h2>Weitere betroffene Wohneinheiten</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <label for="kontakt_name">Name</label>
+            <input type="text" name="kontakt_name" id="kontakt_name" class="form-control">
+          </div>
+          <div class="col-md-6">
+            <label for="kontakt_mobil">Mobil</label>
+            <input type="text" name="kontakt_mobil" id="kontakt_mobil" class="form-control">
+          </div>
+        </div>
+      </div>
+
+      <!-- Schadenursache -->
+      <div class="form-section">
+        <h2>Schadenursache</h2>
+        <div class="row">
+          <div class="col-md-12">
+            <textarea name="schadenursache" class="form-control" rows="4"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ergebnis der Prüfung -->
+      <div class="form-section">
+        <h2>Ergebnis der Prüfung</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <label for="raum">Whg./Raum</label>
+            <input type="text" name="raum" id="raum" class="form-control">
+          </div>
+          <div class="col-md-6">
+            <label for="geschoss">Geschoss</label>
+            <input type="text" name="geschoss" id="geschoss" class="form-control">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label for="oeffnung">Öffnung möglich</label>
+            <select name="oeffnung" id="oeffnung" class="form-control">
+              <option>Ja</option>
+              <option>Nein</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label for="leitungsmaterial">Leitungsmaterial</label>
+            <input type="text" name="leitungsmaterial" id="leitungsmaterial" class="form-control">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <label for="leitungssystem">Leitungssystem</label>
+            <input type="text" name="leitungssystem" id="leitungssystem" class="form-control">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <label for="detail">Detailangabe</label>
+            <textarea name="detail" id="detail" class="form-control" rows="3"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- Messprotokoll -->
+      <div class="form-section">
+        <h2>Messprotokoll</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <label for="notfall">Anlass (Notfall)</label>
+            <select name="notfall" id="notfall" class="form-control">
+              <option>Ja</option>
+              <option>Nein</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <label for="meldung">Gemeldet wurde</label>
+            <textarea name="meldung" id="meldung" class="form-control" rows="3"></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <label>Eingesetzte Messverfahren</label>
+            <div class="checkbox-group">
+              <label><input type="checkbox" name="verfahren[]" value="Feuchtemessung"> Feuchtemessung</label>
+              <label><input type="checkbox" name="verfahren[]" value="Sichtprüfung"> Sichtprüfung</label>
+              <label><input type="checkbox" name="verfahren[]" value="Thermografie"> Thermografie</label>
+              <label><input type="checkbox" name="verfahren[]" value="Thermometer"> Thermometer</label>
+              <label><input type="checkbox" name="verfahren[]" value="Endoskopie"> Endoskopie</label>
+              <label><input type="checkbox" name="verfahren[]" value="Rohrkamera"> Rohrkamera</label>
+              <label><input type="checkbox" name="verfahren[]" value="Hygrometer"> Hygrometer</label>
+              <label><input type="checkbox" name="verfahren[]" value="Elektroakustik"> Elektroakustik</label>
+              <label><input type="checkbox" name="verfahren[]" value="Staublase"> Staublase</label>
+              <label><input type="checkbox" name="verfahren[]" value="Wasserstandsprobe"> Wasserstandsprobe</label>
+              <label><input type="checkbox" name="verfahren[]" value="Pegelmessung"> Pegelmessung</label>
+              <label><input type="checkbox" name="verfahren[]" value="Funkkorrelator"> Funkkorrelator</label>
+              <label><input type="checkbox" name="verfahren[]" value="Leitungsortung"> Leitungsortung</label>
+              <label><input type="checkbox" name="verfahren[]" value="Elektroimpuls"> Elektroimpuls</label>
+              <label><input type="checkbox" name="verfahren[]" value="IQM-Messtechnik"> IQM-Messtechnik</label>
+              <label><input type="checkbox" name="verfahren[]" value="Leitfähigkeit messen"> Leitfähigkeit messen</label>
+              <label><input type="checkbox" name="verfahren[]" value="Rauchgas"> Rauchgas</label>
+              <label><input type="checkbox" name="verfahren[]" value="Tracergas"> Tracergas</label>
+              <label><input type="checkbox" name="verfahren[]" value="Spezialfarbstoff"> Spezialfarbstoff</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PLUS+ Leistungen -->
+      <div class="form-section">
+        <h2>PLUS+ Leistungen</h2>
+        <div class="row">
+          <div class="col-md-4 col-sm-6 mb-2">
+            <div class="form-group">
+              <label for="plus_notabdichtung">Notabdichtung:</label>
+              <input type="number" id="plus_notabdichtung" name="plus_notabdichtung" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 mb-2">
+            <div class="form-group">
+              <label for="plus_reparatur">Reparatur:</label>
+              <input type="number" id="plus_reparatur" name="plus_reparatur" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 mb-2">
+            <div class="form-group">
+              <label for="plus_gebrauch">Gebrauchsfähigkeit hergestellt:</label>
+              <input type="number" id="plus_gebrauch" name="plus_gebrauch" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 mb-2">
+            <div class="form-group">
+              <label for="plus_verstopfung">Verstopfung behoben / Rohrreinigung:</label>
+              <input type="number" id="plus_verstopfung" name="plus_verstopfung" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 mb-2">
+            <div class="form-group">
+              <label for="plus_fliesen">Fliesen zerstörungsfrei entfernt:</label>
+              <input type="number" id="plus_fliesen" name="plus_fliesen" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 mb-2">
+            <div class="form-group">
+              <label for="plus_ersatz">Ersatzfliesen vorhanden:</label>
+              <input type="number" id="plus_ersatz" name="plus_ersatz" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 mb-2">
+            <div class="form-group">
+              <label for="plus_schutt">Schuttentsorgung:</label>
+              <input type="number" id="plus_schutt" name="plus_schutt" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 mb-2">
+            <div class="form-group">
+              <label for="plus_abdeck">Abdeckmaterial:</label>
+              <input type="number" id="plus_abdeck" name="plus_abdeck" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 mb-2">
+            <div class="form-group">
+              <label for="plus_rohr">Rohrreinigung:</label>
+              <input type="number" id="plus_rohr" name="plus_rohr" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 mb-2">
+            <div class="form-group">
+              <label for="plus_sporen">Sofortmaßnahme Sporenblocker:</label>
+              <input type="number" id="plus_sporen" name="plus_sporen" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 mb-2">
+            <div class="form-group">
+              <label for="plus_schimmel">Schimmelpilztest:</label>
+              <input type="number" id="plus_schimmel" name="plus_schimmel" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 mb-2">
+            <div class="form-group">
+              <label for="plus_skizze">Skizze:</label>
+              <input type="number" id="plus_skizze" name="plus_skizze" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 mb-2">
+            <div class="form-group">
+              <label for="plus_video">Videodokumentation:</label>
+              <input type="number" id="plus_video" name="plus_video" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 mb-2">
+            <div class="form-group">
+              <label for="plus_baustelle">Baustelleneinrichtung:</label>
+              <input type="number" id="plus_baustelle" name="plus_baustelle" class="form-control">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Allgemeine Bilddokumentation -->
+      <div class="form-section">
+        <h2>Bilddokumentation (max. 10 Bilder)</h2>
+        <div id="bildContainer" class="bildgruppe">
+          <div class="bild-item card p-3 mb-3">
+            <div class="fw-bold mb-2">Bild 1</div>
+            <div class="mb-2">
+              <label for="bild1" class="form-label">Bild-Datei:</label>
+              <input type="file" name="bild1" id="bild1" accept="image/*" class="form-control">
+            </div>
+            <div class="row">
+              <div class="col-md-4 col-sm-6 mb-2">
+                <label for="bild1_etage" class="form-label">Etage:</label>
+                <input type="text" name="bild1_etage" id="bild1_etage" class="form-control">
+              </div>
+              <div class="col-md-4 col-sm-6 mb-2">
+                <label for="bild1_raum" class="form-label">Raum:</label>
+                <input type="text" name="bild1_raum" id="bild1_raum" class="form-control">
+              </div>
+              <div class="col-md-4 col-sm-12 mb-2">
+                <label for="bild1_beschreibung" class="form-label">Beschreibung:</label>
+                <input type="text" name="bild1_beschreibung" id="bild1_beschreibung" class="form-control">
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="button" id="addBildBtn" class="btn btn-secondary mt-2">Weiteres Bild hinzufügen</button>
+      </div>
+
+      <!-- Ergebnisbilder -->
+      <div class="form-section">
+        <h2>Ergebnis Bilder (max. 3)</h2>
+        <div class="bildgruppe">
+          <div class="bild-item card p-3 mb-3">
+            <div class="fw-bold mb-2">Ergebnis Bild 1</div>
+            <div class="mb-2">
+              <label for="ergebnis_bild1" class="form-label">Bild-Datei:</label>
+              <input type="file" name="ergebnis_bild1" id="ergebnis_bild1" accept="image/*" class="form-control">
+            </div>
+            <div class="row">
+              <div class="col-md-12 mb-2">
+                <label for="ergebnis_bild1_beschreibung" class="form-label">Kurzbeschreibung:</label>
+                <input type="text" name="ergebnis_bild1_beschreibung" id="ergebnis_bild1_beschreibung" class="form-control">
+              </div>
+            </div>
+          </div>
+          
+          <div class="bild-item card p-3 mb-3">
+            <div class="fw-bold mb-2">Ergebnis Bild 2</div>
+            <div class="mb-2">
+              <label for="ergebnis_bild2" class="form-label">Bild-Datei:</label>
+              <input type="file" name="ergebnis_bild2" id="ergebnis_bild2" accept="image/*" class="form-control">
+            </div>
+            <div class="row">
+              <div class="col-md-12 mb-2">
+                <label for="ergebnis_bild2_beschreibung" class="form-label">Kurzbeschreibung:</label>
+                <input type="text" name="ergebnis_bild2_beschreibung" id="ergebnis_bild2_beschreibung" class="form-control">
+              </div>
+            </div>
+          </div>
+          
+          <div class="bild-item card p-3 mb-3">
+            <div class="fw-bold mb-2">Ergebnis Bild 3</div>
+            <div class="mb-2">
+              <label for="ergebnis_bild3" class="form-label">Bild-Datei:</label>
+              <input type="file" name="ergebnis_bild3" id="ergebnis_bild3" accept="image/*" class="form-control">
+            </div>
+            <div class="row">
+              <div class="col-md-12 mb-2">
+                <label for="ergebnis_bild3_beschreibung" class="form-label">Kurzbeschreibung:</label>
+                <input type="text" name="ergebnis_bild3_beschreibung" id="ergebnis_bild3_beschreibung" class="form-control">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Aktionen -->
+      <div class="form-actions">
+        <button type="button" class="btn btn-primary" onclick="speichernBericht()">Speichern</button>
+        <button type="button" class="btn btn-secondary" onclick="window.location.href='berichte.html'">Berichte anzeigen</button>
+        <button type="button" class="btn btn-info" onclick="exportAsPDF()">PDF erzeugen</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="js/database.js"></script>
+  <script src="js/form.js"></script>
+  
+  <!-- Keine Service Worker Registrierung in der Standalone-Version -->
+</body>
+</html>

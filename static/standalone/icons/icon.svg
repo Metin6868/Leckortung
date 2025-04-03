@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" version="1.1" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <rect width="512" height="512" fill="#212529" rx="64" ry="64"/>
+  <g fill="#ffeeba">
+   <rect x="128" y="128" width="256" height="48" rx="12" ry="12"/>
+   <rect x="128" y="208" width="256" height="48" rx="12" ry="12"/>
+   <rect x="128" y="288" width="256" height="48" rx="12" ry="12"/>
+   <path d="m104 400 32 32 24-24-24-24-8 8-8-8z" fill-rule="evenodd"/>
+   <rect x="160" y="384" width="240" height="32" rx="12" ry="12"/>
+  </g>
+  <g fill="#ffcc33">
+   <circle cx="88" cy="144" r="16"/>
+   <circle cx="88" cy="224" r="16"/>
+   <circle cx="88" cy="304" r="16"/>
+  </g>
+ </g>
+</svg>

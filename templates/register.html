@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Benutzer registrieren</title>
+</head>
+<body>
+  <h1>Neuen Benutzer registrieren</h1>
+  <form method="POST">
+    <label for="username">Benutzername:</label>
+    <input type="text" name="username" required>
+    <br>
+    <label for="password">Passwort:</label>
+    <input type="password" name="password" required>
+    <br>
+    <label for="role">Rolle:</label>
+    <select name="role">
+      <option value="techniker">Techniker</option>
+      <option value="admin">Admin</option>
+    </select>
+    <br>
+    <button type="submit">Benutzer anlegen</button>
+  </form>
+</body>
+</html>

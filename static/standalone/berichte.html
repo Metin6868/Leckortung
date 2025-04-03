@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gespeicherte Berichte</title>
+  <link rel="stylesheet" href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <meta name="theme-color" content="#212529">
+  <link rel="icon" href="icons/icon-192x192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+</head>
+<body>
+  <div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h1>Gespeicherte Berichte</h1>
+    </div>
+    <div class="mt-4">
+      <a href="index.html" class="btn btn-primary mb-3">Neuen Bericht erstellen</a>
+    </div>
+    <table id="berichteTable" class="table table-striped">
+      <thead>
+        <tr>
+          <th>Projekt Nr.</th>
+          <th>Projektname</th>
+          <th>Datum</th>
+          <th>Aktionen</th>
+        </tr>
+      </thead>
+      <tbody id="berichteListe"></tbody>
+    </table>
+  </div>
+
+  <script src="js/database.js"></script>
+  <script>
+    async function loadBerichte() {
+      try {
+        const berichte = await getAllReports();
+        // Sortiere nach Projektnummer (unsere_projekt_nr)
+        berichte.sort((a, b) => {
+          const numA = a.unsere_projekt_nr || '';
+          const numB = b.unsere_projekt_nr || '';
+          return numA.localeCompare(numB);
+        });
+        
+        const tbody = document.getElementById('berichteListe');
+        tbody.innerHTML = '';
+        
+        if (berichte.length === 0) {
+          const row = document.createElement('tr');
+          const cell = document.createElement('td');
+          cell.colSpan = 4;
+          cell.textContent = 'Keine Berichte gespeichert.';
+          row.appendChild(cell);
+          tbody.appendChild(row);
+        } else {
+          berichte.forEach(bericht => {
+            const tr = document.createElement('tr');
+            
+            const tdNr = document.createElement('td');
+            tdNr.textContent = bericht.unsere_projekt_nr || '';
+            tdNr.setAttribute('data-label', 'Projekt Nr.');
+            
+            const tdName = document.createElement('td');
+            tdName.textContent = bericht.projekt || '';
+            tdName.setAttribute('data-label', 'Projektname');
+            
+            const tdDatum = document.createElement('td');
+            tdDatum.textContent = bericht.datum || '';
+            tdDatum.setAttribute('data-label', 'Datum');
+            
+            const tdActions = document.createElement('td');
+            tdActions.className = 'actions';
+            tdActions.setAttribute('data-label', 'Aktionen');
+            
+            // Buttons für mobile Ansicht optimieren
+            const actionContainer = document.createElement('div');
+            actionContainer.className = 'd-flex flex-wrap gap-2 justify-content-start';
+            tdActions.appendChild(actionContainer);
+            
+            const editBtn = document.createElement('button');
+            editBtn.textContent = 'Bearbeiten';
+            editBtn.className = 'btn btn-sm btn-secondary';
+            editBtn.style.minHeight = '40px';
+            editBtn.style.minWidth = '100px';
+            editBtn.addEventListener('click', () => {
+              window.location.href = 'index.html?id=' + bericht.id;
+            });
+            
+            const pdfBtn = document.createElement('button');
+            pdfBtn.textContent = 'PDF erzeugen';
+            pdfBtn.className = 'btn btn-sm btn-info';
+            pdfBtn.style.minHeight = '40px';
+            pdfBtn.style.minWidth = '100px';
+            pdfBtn.addEventListener('click', () => {
+              window.location.href = 'pdf.html?id=' + bericht.id;
+            });
+            
+            const deleteBtn = document.createElement('button');
+            deleteBtn.textContent = 'Löschen';
+            deleteBtn.className = 'btn btn-sm btn-danger';
+            deleteBtn.style.minHeight = '40px';
+            deleteBtn.style.minWidth = '100px';
+            deleteBtn.addEventListener('click', async () => {
+              if (confirm('Möchten Sie diesen Bericht wirklich löschen?')) {
+                await deleteReport(bericht.id);
+                loadBerichte(); // Tabelle neu laden
+              }
+            });
+            
+            // Buttons zum Container hinzufügen
+            actionContainer.appendChild(editBtn);
+            actionContainer.appendChild(pdfBtn);
+            actionContainer.appendChild(deleteBtn);
+            
+            tr.appendChild(tdNr);
+            tr.appendChild(tdName);
+            tr.appendChild(tdDatum);
+            tr.appendChild(tdActions);
+            
+            tbody.appendChild(tr);
+          });
+        }
+      } catch (error) {
+        console.error('Fehler beim Laden der Berichte:', error);
+        alert('Fehler beim Laden der Berichte: ' + error.message);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', loadBerichte);
+  </script>
+  
+  <!-- Keine Service Worker Registrierung in der Standalone-Version -->
+</body>
+</html>
